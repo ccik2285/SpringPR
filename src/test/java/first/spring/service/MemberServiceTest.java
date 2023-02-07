@@ -1,9 +1,11 @@
 package first.spring.service;
 
 import first.spring.domain.Member;
+import first.spring.repository.MemberRepository;
 import first.spring.repository.MemoryMemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -11,8 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
 
-    MemberService memberService = new MemberService();
-    MemoryMemberRepository mr = new MemoryMemberRepository();
+    MemberService memberService;
+    MemoryMemberRepository mr;
+
+    @BeforeEach
+    public void beforeEach() {
+        mr = new MemoryMemberRepository();
+        memberService = new MemberService(mr);
+    }
 
     @AfterEach
     public void afterEach() {
