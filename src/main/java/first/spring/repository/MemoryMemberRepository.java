@@ -1,6 +1,7 @@
 package first.spring.repository;
 
 import first.spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import javax.sound.midi.Sequence;
 import java.util.*;

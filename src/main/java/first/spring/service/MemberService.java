@@ -3,15 +3,20 @@ package first.spring.service;
 import first.spring.domain.Member;
 import first.spring.repository.MemberRepository;
 import first.spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public MemberService(MemberRepository memberRepository){ //di 방식
+
+
+    public MemberService(MemberRepository memberRepository){ //di 방식 너는 MemberRepository가 필요하구나 해서 컨테이너에서 di를 주입해줌
         this.memberRepository = memberRepository;
     }
 
